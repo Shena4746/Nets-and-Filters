@@ -4,12 +4,10 @@ ifeq ($(OS),Windows_NT)
 	PWD=$(CURDIR)
 endif
 
+# ?
 .PHONY pr:
 pr:
-	gh pr create \
-	-B main \
-	-t ${BRANCH_SUB} \
-	-b 
+	gh pr create -B main
 
 .PHONY accept:
 accept:

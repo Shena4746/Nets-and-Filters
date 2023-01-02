@@ -14,3 +14,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - first release
 - import files from [my template repo for docker + texlive + vscode + latex-workshop](https://github.com/Shena4746/template-texlive-docker-vscode)
 - introduce docmute package to adopt one tex file one section rule
+- re-order sections to distinguish set-theoretic part and topological part.

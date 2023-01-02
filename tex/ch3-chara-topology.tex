@@ -1,0 +1,324 @@
+\documentclass{report}
+%\documentclass[a4paper,12pt]{article}
+\usepackage{mystyle}
+\usepackage{mypackages}
+\usepackage{commands}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\mathtoolsset{showonlyrefs=true}
+
+\begin{document}
+\section{Net and Filter in Topology}
+
+\subsection{Overview}
+
+\subsection{Convergence and Cluster Point}
+\subsubsection{Convergence and Cluster Point of Filter}
+
+\begin{dfn} (Convergence of filter)
+    We say that filter \( \mathscr{F} \) converges to a point \( p \), and write \( \mathscr{F} \to p \), if every neighborhood \( N \) of \( p \) belongs to \( \mathscr{F} \).
+\end{dfn}
+
+\begin{rem}\label{rem filter convergence}
+    Note (verify!) that \( \mathscr{F} \to p \) if and only if for every neighborhood \( N \) of \( p \) there is \( F \in \mathscr{F} \) such that \( F \subset N \).
+\end{rem}
+
+\begin{dfn} (Cluster point of filter)
+    A point \( p \) is called a cluster point of a filter \( \mathscr{F} \) if \( p \) lies in the closure of every member of \( \mathscr{F} \).
+\end{dfn}
+
+
+\begin{dfn} (Convergence and cluster point of filter basis)
+    We say that a filter basis \( \mathscr{B} \) converges to a point \( p \), and write \( \mathscr{B} \to p \), if for every neighborhood \( N \) of \( p \) there is \( B \in \mathscr{B} \) such that \( B \subset N \).
+
+    A point \( p \) is called a cluster point of a filter basis \( \mathscr{B} \) if \( p \in \overline{B} \) for every \( B \in \mathscr{B} \).
+\end{dfn}
+
+\begin{rem}
+    Here we adopt, as definition of convergence of filter basis, the necessary and sufficient condition of convergence of filter. See remark \ref{rem filter convergence}.
+\end{rem}
+
+\begin{rem}
+    Clearly, \( p \) is a cluster point of a filter basis \( \mathscr{B} \) if and only if \( \mathscr{B} \) has trace on every neighborhood of \( p \).
+\end{rem}
+
+\begin{ex}\label{example local basis} (basis of neighborhoods as a filter)
+    Suppose \( \mathscr{N}(p) \) is a basis of neighborhoods of a point \( p \) of a topological space.
+    \( \{p\} \cup \mathscr{N}(p) \) is a filter basis, but not necessarily a filter. On the other hand, \( \mathscr{N}(p) \) is a filter. Both of them converge to \( p \).
+\end{ex}
+
+In general, \( \mathscr{F}\to p \) implies \( \mathscr{G}\to p \) for a filter \( \mathscr{G} \supset \mathscr{F} \), and not conversely. The following proposition gives a special example in which the converse holds.
+\begin{prp}
+    Suppose a filter basis \( \mathscr{B} \) generates a filter \( \mathscr{F} \). Then \( \mathscr{B}\to p \) if and only if \( \mathscr{F}\to p \).
+\end{prp}
+\begin{prf}
+    Suppose \( \mathscr{F}\to p \). By definition, for every neighborhood \( N \) of \( p \) there is \( F \in \mathscr{F} \) such that \( F \subset N \). For this \( F \) there is \( B \in \mathscr{B} \) such that \( B \subset N \) since \( \mathscr{B} \) generates \( \mathscr{F} \). Thus, \( \mathscr{B}\to p \). The converse is trivial.
+    \qed\end{prf}
+
+
+\begin{lem}\label{Relation of convergence and cluster point} (Relation of convergence and cluster point)
+    Let \( \mathscr{F} \) be a filter and \( p \) be a point.
+    If \( \mathscr{F}\to p \), then \( p \) is a cluster point of \( \mathscr{F} \).
+    Moreover, the converse is also true if \( \mathscr{F} \) is a maximal filter.
+    Thus, if \( \mathscr{F}^{\star} \) is a maximal filter, \( p \) is a cluster point of \( \mathscr{F}^{\star} \) precisely when \( \mathscr{F}^{\star} \to p\).
+\end{lem}
+\begin{prf}
+    Suppose \( \mathscr{F} \to p \). Let \( A \in \mathscr{F} \).
+    Since every neighborhood \( N \) of \( p \) belongs to \( \mathscr{F} \), we have, by definition, \( A \cap N \neq \emptyset \), and hence \( p \in \overline{A} \). Thus, \( p \) is a cluster point of \( A \).
+
+    Conversely, suppose \( p \) is a cluster point of a maximal filter \( \mathscr{F} \). Then, by definition of cluster point, every neighborhood \( N \) of \( p \) intersects every member of \( \mathscr{F} \). By Theorem \ref{characterize maximal filter}, we have \( N \in \mathscr{F} \), and therefore \( \mathscr{F} \to p \).
+    \qed\end{prf}
+
+
+\subsubsection{Convergence and Cluster Point of Net}
+\begin{dfn} (Convergence and cluster point of net)
+    \begin{itemize}
+        \item A net \( x_{\lambda} \) is said to converge to a point \( p \), and is denoted by \( x_{\lambda}\to p \), if \( x_{\lambda} \) is eventually in every neighborhood of \( p \).
+        \item A point \( p \) is called a cluster point of a net \( x_{\lambda} \) if \( x \) is frequently in every neighborhood of \( p \).
+    \end{itemize}
+\end{dfn}
+
+\begin{exe} (Convergence of subnet)
+    If a net converges to a point, so is every subnet of it.
+\end{exe}
+
+\begin{thm}\label{invariance convergence} (Invariance of convergence under derivation)
+    Let \( \mathscr{F} \) be a filter and let \( x \) be a net. Suppose \( p \) is a point. If \( \mathscr{F} \simeq x \), then we have the following equivalence:
+    \[
+        \mathscr{F} \to p \iff x \to p.
+    \]
+\end{thm}
+\begin{prf}
+    By Theorem \ref{fundamental theorem of derivation}, we may assume that \( \mathscr{F} \) is derived from \( x \). For every neighborhood \( N \) of \( p \), we see that \( x \to p \) implies \( x \) is eventually in \( N \), and hence \( N \in \mathscr{F} \), and thus \( \mathscr{F}\to p \), and conversely.
+    \qed\end{prf}
+
+An analogous argument to the sequence case shows the following.
+\begin{exe}\label{fe relation} (Frequent-eventual relation)
+    A net \( x \) is frequently in a set \( A \) if and only if \( x \) admits a subnet that is eventually in \( A \).
+\end{exe}
+
+\subsection{Characterization of Topological Properties}
+
+\begin{prp}\label{characterize cluster point} (Characterization of cluster point)
+    Suppose \( p \) is a point of a topological space \( X \). Let \( x \) be a net of \( X \), and let \( \mathscr{F} \) be the filter of \( X \) equivalent to \( x \). The following conditions are equivalent.
+    \begin{itemize}
+        \item[(1)] \( p \) is a cluster point of \( x \).
+        \item[(2)] \( p \) is a cluster point of \( \mathscr{F} \).
+        \item[(3)] \( x \) admits a subnet converging to \( p \).
+        \item[(4)] There is a filter \( \mathscr{G} \) such that \( \mathscr{G} \supset \mathscr{F} \) and \( \mathscr{G} \to p \).
+    \end{itemize}
+\end{prp}
+\begin{prf}
+    (1) \( \iff \) (3): By Proposition \ref{fe relation}.
+
+    (3) \( \iff \) (4): By invariance of order (Corollary \ref{invariance order})  and invariance of convergence (Theorem \ref{invariance convergence}).
+
+    (2) \( \iff \) (4): \( p \) is a cluster point of \( \mathscr{F} \) precisely when \( \mathscr{F} \) has trace on every \( N \in \mathscr{N} \), where \( \mathscr{N} \) is a basis of neighborhood of \( p \). This is the case precisely when \( \mathscr{F} \) and \( \mathscr{N} \) are compatible, which is true precisely when (4) holds by Proposition \ref{compatible}.
+    \qed\end{prf}
+
+\begin{prp} (Characterization of neighborhood)
+    Suppose \( p \) is a point of a topological space \( X \), and suppose \( U \) is a subset of \( X \). The following conditions are equivalent.
+    \begin{itemize}
+        \item[(1)] \( U \) is a neighborhood of \( p \).
+        \item[(2)] \( U \cap \{x\} \neq \emptyset \) for every net \( x \) converging to \( p \).
+        \item[(3)] Every filter converging to \( p \) contains \( U \) as its member.
+    \end{itemize}
+\end{prp}
+\begin{prf}
+    (1) \( \implies \)(2): Obvious.
+
+    (2) \( \implies \)(3):
+    Let \( \mathscr{F} \) be a filter with \( U \notin \mathscr{F} \to p \). Every net derived \( x \) from \( F \) converges to \( p \) but \( U \cap \{x\} = \emptyset \).
+
+    (3) \( \implies \) (1): Let \( \mathscr{N}:=\mathscr{N}(p) \) be the set of all neighborhoods of \( p \). Clearly, \( \mathscr{N}\to p \), and thus \( U \in \mathscr{N} \) by assumption.
+    \qed\end{prf}
+
+\begin{prp}\label{characterize closure} (Characterization of closure)
+    Suppose \( A \) is a subset of a topological space \( X \). Let \( p \) be a point in \( X \). The following conditions are equivalent.
+    \begin{itemize}
+        \item[(1)] \( p \in \overline{A} \).
+        \item[(2)] There is a net of \( A \) converging to \( p \).
+        \item[(3)] \( p \) is a cluster point of a filter of \( A \).
+        \item[(4)] There is a filter basis of \( A \) converging to \( p \).
+    \end{itemize}
+\end{prp}
+\begin{prf}
+    Let \( \mathscr{N}(p) \) be the set of all neighborhoods of \( p \).
+    (1) is true if and only if \( \mathscr{N}(p) \) has trace on \( A \). This is the case if and only if (4) holds. Other equivalences are easy to deduce.
+    \qed\end{prf}
+
+\begin{exe}\label{characterize closed} (Characterization of closed sets)
+    For a set \( A \) in a topological space \( X \), the following conditions are equivalent.
+    \begin{itemize}
+        \item[(1)] \( A \) is closed.
+        \item[(2)] If a filter \( \mathscr{F} \) of \( A \) converges to a point \( p \), then \( p \in A \).
+    \end{itemize}
+\end{exe}
+
+\begin{exe}\label{continous mapping of cp} (Continuous mapping of cluster point)
+    Suppose \( f:X \to Y \) is continuous, and suppose a filter \( \mathscr{F} \) has a cluster point \( p \). Then the filter \( f(\mathscr{F}) \) has \( f(p) \) as one of its cluster points.
+\end{exe}
+
+\begin{prp}\label{characterize continuity} (Characterization of continuity)
+    Let \( f:X \to Y \) be a map. The following conditions are equivalent.
+    \begin{itemize}
+        \item[(1)] \( f \) is continuous at a point \( p \).
+        \item[(2)] For any filter basis \( \mathscr{B} \) of \( X \), if \( \mathscr{B} \to p \), then \( f(\mathscr{B}) \to f(p) \).
+        \item[(3)] For any filter \( \mathscr{F} \) of \( X \), if \( \mathscr{F} \to p \), then \( f(\mathscr{F})\to f(p) \).
+        \item[(4)] For any net \( x \) of \( X \), if \( x \to p \), then \( f(x)\to f(p) \).
+    \end{itemize}
+\end{prp}
+
+\begin{prf}
+    (1) \( \implies  \) (2):
+    Suppose \( N \) is a neighborhood of \( f(p) \). By assumption, there is a neighborhood \( U \) of \( p \) such that \( f(U) \subset N \). But by continuity, there is \( B \in \mathscr{B} \) such that \( B \subset U \), and thus \( f(B) \subset f(U) \subset N \).
+
+    (2) \( \implies \) (3): Obvious.
+
+    (3) \( \implies \) (4):
+    Since \( \mathscr{F}_x \to p \) by assumption and Proposition \ref{invariance convergence}, it follows from (3) and Exercise \ref{invariance under mapping} that \( f(\mathscr{F}_x) \simeq f(x)\to p \).
+
+    (4) \( \implies \) (1): Take net as an usual sequence.
+    \qed\end{prf}
+
+\begin{prp}\label{characterize compact} (Characterization of compactness)
+    Let \( X \) be a topological space. The following conditions are equivalent.
+    \begin{itemize}
+        \item[(1)] \( X \) is compact.
+        \item[(2)] Every closed collection of subsets of \( X \) with the finite intersection property has a nonempty intersection.
+        \item[(3)] Every filter of \( X \) has a cluster point.
+        \item[(4)] Every maximal filter is convergent.
+    \end{itemize}
+\end{prp}
+\begin{prf}
+    (1) \( \iff \) (2):
+    Every elementary course on topology should contain this result, so the proof is left to the reader.
+
+    (2) \( \implies \) (3): For every filter \( \mathscr{F} \), define
+    \begin{equation*}
+        \overline{\mathscr{F}} := \{\overline{F} \mid F \in \mathscr{F}\}.
+    \end{equation*}
+    \( \overline{\mathscr{F}} \) is obviously a closed filter with the finite intersection property. Then (2) implies that there is a point \( p \) such that \( p \in \overline{F}\) for all \( F \in \mathscr{F} \). Thus, \( p \) is a cluster point of \( \mathscr{F} \).
+
+    (3) \( \implies \) (4):
+    Apply Lemma \ref{Relation of convergence and cluster point}.
+
+    (4) \( \implies \) (2): Let \( \mathscr{C} \) be the collection of closed sets with the finite intersection property. By Proposition \ref{existence maximal filter}, there is a finer maximal filter, which is convergent by assumption. Suppose \( p \) is a limit point of it. Then \( p \) is a cluster point of the filter basis \( \mathscr{C} \). Thus, \( p \in \overline{C} = C \) for every \( C \in \mathscr{C} \).
+    \qed\end{prf}
+
+\begin{exe}
+    Show (4) \( \implies \) (1) directly in the Proposition.
+\end{exe}
+\begin{prf}
+    Suppose (4) holds. We prove that \textit{every covering \( \mathscr{U} \) of \( X \) that admits no finite subcovering is not open.}
+    Let \( \mathscr{U} \) be such a covering. Observe that
+    \begin{equation*}
+        \mathscr{B}:=\{X \setminus U \mid U \in \mathscr{U}\}
+    \end{equation*}
+    has the finite intersection property. We can therefore, by Proposition \ref{existence maximal filter}, construct a maximal filter \( \mathscr{F} \supset \mathscr{B} \). By (4), we have \( \mathscr{F}\to p \) for some \( p \in X \), which is a cluster point of \( \mathscr{F} \) by Proposition \ref{characterize cluster point}. Then, by definition of cluster point, we have \( p \in \overline{F} \) for every \( F \in \mathscr{F} \), in particular, \( p \in \overline{X \setminus U} \) for every \( U \in \mathscr{U} \).
+    On the other hand, we have \( p \in U \), that is, \( p \in X \setminus U \) for some \( U \in \mathscr{U} \) since \( \mathscr{U} \) is a covering of the whole space. This means \( \overline{X \setminus U} \supsetneq X \setminus U \) for some \( U \in \mathscr{U} \). Thus, \( \mathscr{U} \) is not open.
+    \qed\end{prf}
+
+\begin{prp}\label{characterize Hausdorff} (Characterization of Hausdorff separation axiom)
+    The following conditions about a topological space \( X \) are equivalent;
+    \begin{itemize}
+        \item[(1)] \( X \) is a Hausdorff space.
+        \item[(2)] Every filter basis of \( X \) converges at most one point.
+        \item[(3)] Every filter basis of \( X \) has at most one cluster point.
+    \end{itemize}
+\end{prp}
+\begin{prf}
+    Let \( \mathscr{N}(p) \) be a basis of neighborhoods of \( p \).
+    (1) \( \implies  \) (2):
+    Suppose a filter basis \( \mathscr{B} \) converges to a point \( p \). Pick a point \( q \) with \( q \neq p \). Then there exist \( U \in \mathscr{N}(p) \) and \( V \in \mathscr{N}(q)\) such that \( U \cap V = \emptyset \). Convergence of \( \mathscr{F} \) implies that there is \( B \in \mathscr{B} \) such that \( B \subset U \) and there is no \( B \in \mathscr{B}\) such that \( B \subset V \). Thus, \( \mathscr{B} \) converges to no point but \( p \).
+
+    (2) \( \implies \)(3): Obvious by Proposition \ref{characterize cluster point}.
+
+    (3) \( \implies \) (1):
+    In a non-Hausdorff space, there are two distinct point \( p \) and \( q \) such that \( \mathscr{N}(p) \) and \( \mathscr{N}(q) \) are compatible. Then, \( p \) and \( q \) are cluster points.
+    \qed\end{prf}
+
+% \begin{thm}\label{characterize convergence init} (Characterization of convergence of initial topology)
+% 	Suppose \( X \) is the topological space equipped with the initial topology induced by topological spaces \( X_{\lambda} \) and surjective maps \( \pi_{\lambda} \).
+% 	Let \( \mathscr{F} \) be a filter of \( X \), and let \( p \) is a point.
+% 	\begin{itemize}
+% 		\item[(1)] \( \mathscr{F} \) converges to \( p \) if and only if each filter \( \mathscr{F}_{\lambda}:=\pi_{\lambda}(\mathscr{F}) \) converges to \( p_{\lambda}:= \pi_{\lambda}(p)\).
+% 		\item[(2)] \( \mathscr{F} \) has a cluster point \( p \) if and only if each filter \( \mathscr{F}_{\lambda} \) has a cluster point \( p_{\lambda} \).
+% 	\end{itemize}
+% \end{thm}
+% \begin{prf}
+% 	(1): Necessity is obvious. Conversely, suppose \( F_{\lambda} \to p_{\lambda} \). Let \( N \) be a neighborhood of \( p \) in \( X \). By construction of initial topology, there is finitely many \( \lambda_1 ,\ldots, \lambda_k \) such that
+% 	\begin{equation*}
+% 		N \supset \bigcap_{i=1}^{k} \pi_{\lambda_1}^{-1}(N_{\lambda_i}),
+% 	\end{equation*}
+% 	where each \( N_{\lambda_i} \) is a neighborhood of \( p_{\lambda_i} \) of \( X_{\lambda_i} \). On the other hand, we have \( N_{\lambda_i} \in F_{\lambda_i} \) by assumption, that is, \( N_{\lambda_i} = \pi_{\lambda_i}(F_i)\) for some \( F_i \in \mathscr{F} \). From this it follows that \( F_i \subset \pi_{\lambda_i}^{-1} (N_{\lambda_i}) \), and hence \( \pi_{\lambda_i}^{-1} (N_{\lambda_i}) \in \mathscr{F} \), and therefore \( N \in \mathscr{F} \). Thus, \( \mathscr{F} \to p \).
+
+% 	(2): The proof for (1) essentially includes that for the case of (2). So below is just kind of an exercise.
+
+% 	Again, necessity is trivial. Conversely, suppose \( \mathscr{F} \) admits no cluster point. By Proposition \ref{characterize cluster point}, this is equivalent to saying that none of larger filter \( \mathscr{G} \) than \( \mathscr{F} \) converge to \( p \). By (1), none of \( \pi_{\lambda}(\mathscr{G}) \) converge to \( p_{\lambda_i} \). Since \( \pi_{\lambda}^{-1}(\mathscr{H}) \) is a filter of \( X \) with \( \pi_{\lambda}^{-1}(\mathscr{H}) \supset \mathscr{F} \) for every filter \( \mathscr{H} \) with \( \mathscr{H} \supset \mathscr{F}_{\lambda} \), and since \( \pi_{\lambda} \left( \pi_{\lambda}^{-1}(\mathscr{H}) \right) =\mathscr{H} \), we conclude that none of larger filter than \( \mathscr{F}_{\lambda} \) converge to \( p_{\lambda} \). Thus, \( p_{\lambda} \) is not a cluster point of \( \mathscr{F}_{\lambda} \).
+% 	\qed\end{prf}
+
+\begin{thm}\label{characterize convergence of induced filter} (Characterization of convergence of induced filter in initial topology)
+    Suppose \( X \) is the topological space equipped with the initial topology induced by topological spaces \( (X_{\lambda})_{\lambda \in \Lambda} \) and maps \( (\pi_{\lambda}:X \to X_{\lambda})_{\lambda \in \Lambda} \), that is, the coarsest topology with respect to which every \( \pi_{\lambda} \) is continuous.
+    Let \( (\mathscr{F}_{\lambda})_{\lambda \in \Lambda} \) be filters such that each \( \pi_{\lambda}^{-1}(\mathscr{F}_{\lambda}) \) is a filter basis.
+    Let \( \mathscr{F} \) be the filter of \( X \) induced by \( (\mathscr{F}_{\lambda}) \) and \( (\pi_{\lambda}) \).
+    \begin{itemize}
+        \item[(1)] Each \( \mathscr{F}_{\lambda} \) converges to a point \( p_{\lambda}\) if and only if \( \mathscr{F} \) converges to \( p:=(p_{\lambda}) \).
+
+        \item[(2)] Each \( \mathscr{F}_{\lambda} \) admits a cluster point \( p_{\lambda} \) if and only if \( \mathscr{F} \) admits a cluster point \( p \).
+    \end{itemize}
+\end{thm}
+\begin{prf}
+    (1): Sufficiency follows from continuity of \( \pi_{\lambda} \). Conversely, suppose each \( \mathscr{F}_{\lambda} \) converges to \( p_{\lambda} \).
+    Let \( N \) be a neighborhood of \( p:=(p_{\lambda})_{\lambda \in \Lambda} \) in \( X \). By construction of initial topology, there are finite subset \( J \) of \( I \) such that
+    \begin{equation*}
+        N \supset \bigcap_{j \in J} \pi_{j}^{-1}(N_{j}),
+    \end{equation*}
+    where each \( N_j \) is a neighborhood of \( p_j \). There also exists \( F_j \in \mathscr{F}_j \) such that \( F_j \subset N_j \) for each \( j \in J \).
+    This implies a basis of \( \mathscr{F} \) converges to \( p \) by Proposition \ref{characterize induced filter}.
+
+    (2): Sufficiency follows again from continuity of \( \pi \). Conversely, if \( p_{\lambda} \) is a cluster point of \( \mathscr{F}_{\lambda} \), then, by Proposition \ref{characterize cluster point}, there is a filter \( \mathscr{G}_{\lambda} \) that is finer than \( \mathscr{F}_{\lambda} \) and converges to \( p_{\lambda} \) for every \( \lambda \in \Lambda \). Then (1) implies the filter \( \mathscr{G} \) induced by \( (\mathscr{G}_{\lambda}, \pi_{\lambda}) \) converges to \( (p_{\lambda}) \). Since \( \mathscr{G} \) is obviously finer than \( \mathscr{F} \), \( (p_{\lambda}) \) is a cluster point of \( \mathscr{F} \) by Proposition \ref{characterize cluster point}.
+    \qed\end{prf}
+
+\subsection{Compact Space with Filter}
+
+\begin{prp}\label{invariance of compactness under ctn} (Invariance of compactness under continuous transformation)
+    Let \( X \) be a compact space and \( Y \) be a topological space.
+    If \( f:X \to Y \) is a surjective and continuous map, then \( Y \) is compact.
+\end{prp}
+\begin{prf}
+    For any filter \( \mathscr{G} \) of \( Y \), we see that \( f^{-1}(\mathscr{G}) \) is a filter of \( X \). By assumption, \( f^{-1}(\mathscr{G}) \) admits a cluster point \( p \) in \( X \), which is, by Exercise \ref{continous mapping of cp}, also a cluster point of \( f(f^{-1}(\mathscr{G})) \supset \mathscr{G}\). This implies that \( \mathscr{G} \) also admits a cluster point, and hence \( Y \) is compact.
+    \qed\end{prf}
+
+\begin{prp}\label{invariance of compactness under closed intersection} (invariance of compactness under closed intersection)
+    Every closed set of a compact space is compact.
+\end{prp}
+\begin{prf}
+    Let \( \mathscr{F} \) be a filter of a closed subset of \( B \) of a compact space. By assumption, \( \mathscr{F} \) admits a cluster point belonging to \( B \). Thus, \( B \) is compact.
+    \qed\end{prf}
+
+\begin{prp}\label{compact -> closed if Hausdorff}
+    Every compact set of a Hausdorff space is closed.
+\end{prp}
+
+\begin{prf}
+    Suppose a filter \( \mathscr{F} \) of a compact set \( B \) of a Hausdorff space \( X \) converges to a point \( p \) in \( X \). By compactness, \( \mathscr{F} \) has a cluster point \( q \) in \( B \). By proposition \ref{characterize cluster point}, there is a finer filter \( \mathscr{G} \) than \( \mathscr{F} \) such that \( \mathscr{G} \to q \) in \( B \), as well as in \( X \) as a filter basis. Then Proposition \ref{characterize Hausdorff} implies \( p =q \in B \). Thus, \( B \) is closed by Exercise \ref{characterize closed}.
+    \qed\end{prf}
+
+\begin{prp}
+    Let \( X \) be a compact space and \( Y \) a Hausdorff space.
+    Then every continuous bijection of \( X \) into \( Y \) is homeomorphism.
+\end{prp}
+\begin{prf}
+    It suffice to show that \( f \) is a closed mapping. Suppose \( F \) is a closed set of \( X \). Then, by by Proposition \ref{invariance of compactness under closed intersection}, it is compact, whose image under \( f \) is compact by Proposition \ref{invariance of compactness under ctn}, and thus closed by Proposition \ref{compact -> closed if Hausdorff}.
+    \qed\end{prf}
+
+\begin{thm} (Tychonoff)
+    Suppose a set \( X \) is equipped with the initial topology induced by topological spaces \( (X_{\lambda})_{\lambda \in \Lambda} \) and surjective maps \( (\pi_{\lambda}: X \to X_{\lambda})_{\lambda \in \Lambda} \).
+    Then \( X \) is compact if and only if each \( X_{\lambda} \) is compact.
+\end{thm}
+\begin{prf}
+    Necessity is obvious. Conversely, suppose each \( X_{\lambda} \) is compact.
+    Let \( \mathscr{F} \) be a maximal filter of \( X \). By Proposition \ref{invariace of maximality under invariace of maximality under surjection}, \( \mathscr{F}_{\lambda}:=\pi_{\lambda}(\mathscr{F}) \) is also maximal. Proposition \ref{characterize compact} implies each \( \mathscr{F}_{\lambda} \) is convergent; suppose \( \mathscr{F}_{\lambda}\to p_{\lambda} \). It then follows from Proposition \ref{characterize convergence of induced filter} that \( \prod \mathscr{F}_{\lambda} \to p:=(p_{\lambda})\), and thus \( \mathscr{F} \to p \).
+    \qed\end{prf}
+\end{document}

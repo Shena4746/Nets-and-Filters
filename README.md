@@ -1,7 +1,7 @@
 # Nets and Filters
 
-hogehoge
+Under restructuring....
 
-## About nets and filers
+## abstract
 
-fuga
+copy from tex content.

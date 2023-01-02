@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"latex-workshop.latexindent.path": "/usr/local/bin/texlive/latexindent",
+	}
+}

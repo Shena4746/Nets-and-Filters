@@ -1,0 +1,5 @@
+# Custom Dictionary Words
+# white list for cspell checker extension
+docmute
+maximality
+texlive

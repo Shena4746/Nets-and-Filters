@@ -1,0 +1,181 @@
+\documentclass{report}
+%\documentclass[a4paper,12pt]{article}
+\usepackage{mystyle}
+\usepackage{mypackages}
+\usepackage{commands}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\mathtoolsset{showonlyrefs=true}
+
+\begin{document}
+
+\section{Derivation}
+
+\subsection{Overview}
+
+In this section we see that every filter and net has its (essentially) unique twin. Each of individual filter and net turns into the corresponding twin by the conversion called derivation, and then comes back to the original one by another derivation. In other words, derivation is a kind of isomorphism between the space of filters and that of nets. In fact, as the readers reasonably expect, important properties, such as convergence and maximality and etc., are preserved under derivation. Nets and Filters are twins literally at the genetic level. So why not exploit it to investigate them?
+
+The main purpose of this section is to establish several crucial results that clarifies the genetic identity of nets and filters. As soon as the very basic definitions are introduced, some fundamental results are readily proved. We then deduce, as a simple application of them, the existence and characterization of maximal net.
+
+\subsection{Invariance under Derivation}
+
+\begin{dfn} (Derived net)
+    Let \( \mathscr{B} \) be a filter basis, and let \( \mathscr{F} = \{F_{\lambda} \mid \lambda \in \Lambda \} \) be the generated filter.
+    A net \( x_{\lambda} \) derived from the filter basis \( \mathscr{B} \) is a mapping
+    \begin{equation*}
+        x: \Lambda \ni \lambda \mapsto x_{\lambda} \in F_{\lambda} \subset X,
+    \end{equation*}
+    where \( \Lambda \) is directed by the partial order \( > \) defined by \( \lambda_1> \lambda_2 \iff F_{\lambda_1} \subset F_{\lambda_2} \).
+    We also say that \( \mathscr{F} \) (or \( \mathscr{B} \)) generates \( x \).
+\end{dfn}
+
+\begin{dfn} (Derived filter)
+    The filter derived from a net \( x \) is the collection of the sets \( A \) in which \( x \) eventually lies, and is denoted by \( \mathscr{F}_x \). We also say that \( x \) generates \( \mathscr{F}_x \).
+\end{dfn}
+
+\begin{rem}
+    Note that derived filter is uniquely specified as a filter once a net is designated.
+    In contrast, derived net no way specifies unique net except in trivial cases. In fact, derived nets in general consist of a collection of projection nets of indexing set of a filter into a member of the filter.
+\end{rem}
+
+
+% \begin{thm}\label{invariance convergence} (Invariance of convergence under derivation)
+% 	\begin{itemize}
+% 		\item[(1)] A filter converges to a point if and only if every net derived from the filter converges to the point.
+% 		\item[(2)] Conversely, a net converges to a point if and only if the derived filter converges to the point.
+% 	\end{itemize}
+% \end{thm}
+% \begin{prf}
+% 	(1):
+% 	Suppose \( \mathscr{F} =\{F_{\lambda}\} \to p \). Let \( x_{\lambda} \) be a derived net. For every neighborhood \( N \) of \( p \) there is \( F_{\lambda_0} \in \mathscr{F} \) such that \( F_{\lambda_0} \subset N \). Since \( F_{\lambda} \subset F_{\lambda_0} \subset N \) for \( \lambda>\lambda_0 \), we have \( x_{\lambda} \in N \) for \( \lambda > \lambda_0 \).
+% 	Thus, \( x \to p \).
+
+% 	Conversely, suppose \( \mathscr{F} \) fails to converge to \( p \), that is, suppose there is neighborhood \( N \) of \( p \) such that no \( F_{\lambda} \) is contained in \( N \). Construct a net \( x_{\lambda} \) so that \( x_{\lambda} \in F_{\lambda} \setminus N \) for every \( \lambda \in \Lambda \).
+% 	Then, \( x \) is a derived net not converging to \( p \).
+
+% 	(2): Suppose \( \mathscr{F}_x \) is the derived filter from a net \( x \). Suppose \( x \to p \), that is, suppose \( x \) is eventually in \( N \) for every neighborhood \( N \) of \( p \). Then \( N \in \mathscr{F} \) by definition of \( \mathscr{F} \). Thus, \( \mathscr{F} \to p \).
+
+% 	Conversely, suppose \( \mathscr{F}_x \to p \), i.e., every neighborhood \( N \) of \( p \) belongs to \( \mathscr{F} \). This means that \( x \) is eventually in \( N \). Thus, \( x \to p \).
+% 	\qed\end{prf}
+
+You can safely skip the next result. Actually, we will shortly establish several results that make it almost trivial. It only serves as an exercise about maximality.
+\begin{exe}\label{invariance maximality} (Invariance of maximality under derivation)
+    \begin{itemize}
+        \item Every net derived from a maximal filter is maximal.
+        \item Conversely, the filter derived from a maximal net is maximal.
+    \end{itemize}
+\end{exe}
+\begin{prf}
+    Suppose \( \mathscr{F} = \{F_{\lambda}\} \) is a maximal filter. For every \( A \subset X \), there holds either \( A \in \mathscr{F} \) or \( X \setminus A \in \mathscr{F} \). That is, every \( F_{\lambda} \) is of the form either \( A \) or \( X \setminus A \). Thus, every derived net is eventually in either \( A \) or \( X \setminus A\).
+
+    Conversely, suppose a net \( x \) is maximal, that is, \( x \) is eventually in either \( A \) or \( X \setminus A \) for every \( A \subset X \). Then, by definition, the derived filter \( \mathscr{F} \) consists of \( A \) or \( X \setminus A \). Thus, \( \mathscr{F} \) is maximal.
+    \qed\end{prf}
+
+The next Lemma immediately follows from definition.
+\begin{lem}\label{classification by eventual} (relation induced by eventual behavior)
+    Two nets are equivalent if they share the same derived filter, that is, if they eventually lie in the same set.
+\end{lem}
+
+\begin{lem}\label{reflexive property} (Idempotent property of derivation)
+    \begin{itemize}
+        \item[(1)] If \( x \) is a net derived from a filter \( \mathscr{F} \), then \( \mathscr{F} = \mathscr{F}_x \).
+        \item[(2)] If \( \mathscr{F}_x \) is the filter derived from a net \( x \),
+            then every net \( f \) derived from \( \mathscr{F}_x \) is equivalent to \( x \).
+    \end{itemize}
+\end{lem}
+\begin{prf}
+    (1): Write \( x = (x_{\lambda}) \). Observe \( A \in \mathscr{F}_x \) if and only if \( x \) is eventually in \( A \).
+    This is the case if and only if for every \( \lambda_0 \) we have \( x_{\lambda} \in A \) for all \( \lambda > \lambda_0 \).
+    This holds if and only if there exists a subset \( F_{\lambda}\in \mathscr{F} \) such that \( x_{\lambda} \in F_{\lambda} \subset A \), from which it follows that \( A \in \mathscr{F} \), and conversely (consider contraposition).
+
+    (2): Note that the filter \( \mathscr{F} \) derived from \( f \) coincides with \( \mathscr{F}_x \) by (1). Thus \( x \) and \( f \) are equivalent by Lemma \ref{classification by eventual}.
+    \qed\end{prf}
+
+The following theorem and its corollary are the highlight of this section. The proof is almost obvious since it is just a rephrase of the above Lemma.
+\begin{thm}\label{fundamental theorem of derivation} (Fundamental theorem of derivation)
+    \begin{itemize}
+        \item[(1)] For every filter there exists a net that generates the filter. Moreover, the net is unique up to the subnet-equivalence modulo.
+        \item[(2)] For every net there exists unique filter that generates a net equivalent to the given net.
+    \end{itemize}
+\end{thm}
+\begin{prf}
+    Lemma \ref{reflexive property} has establishes the existence part. It remains to show the uniqueness.
+    To prove the first claim, let \( \mathscr{F} \) be a filter, and suppose two nets \( x \) and \( y \) generates the identical filter \( \mathscr{F} \). But this is just rephrase of \( x \sim y \) by definition.
+    Similarly, the second claim immediately follows from Lemma \ref{reflexive property}.
+    \qed\end{prf}
+
+\begin{rem} (Implication of fundamental theorem of derivation)
+    Theorem \ref{fundamental theorem of derivation} say that derivation works like an idempotent bijection between the set of filters and that of equivalence classes of nets, as we have suggested at the beginning of the section. It is thus natural to introduce a notation that represents the paired relationship, as follows.
+\end{rem}
+
+\begin{dfn} (Equivalence of net and filter: \( \simeq \))
+    We say that a net \( x \) and a filter \( \mathscr{F} \) are equivalent, and write \( x \simeq \mathscr{F} \), if \( \mathscr{F}_x = \mathscr{F} \).
+\end{dfn}
+
+\begin{cor} (Invariance of order under derivation)\label{invariance order}
+    Suppose filters \( \mathscr{F} \), \( \mathscr{G} \) and nets \( f \), \( g \) have the following equivalence relations:
+    \[
+        \mathscr{F} \simeq f,\quad \mathscr{G} \simeq g.
+    \]
+    Then we have the following equivalence:
+    \[
+        \mathscr{G} \supset \mathscr{F} \iff g \succeq f.
+    \]
+\end{cor}
+\begin{prf}
+    By Theorem \ref{fundamental theorem of derivation}, we may assume that \( \mathscr{F} \) and \( \mathscr{G} \) are derived from \( f \) and \( g \), respectively. \( g \) is a subnet of \( f \) if and only if, by Lemma \ref{characterize subnet}, \( g \) is eventually in \( A \) whenever \( f \) is eventually in \( A \).
+    It then follows from Theorem \ref{fundamental theorem of derivation} and definition of derived filter that \( \mathscr{G} = \mathscr{F}_g \supset \mathscr{F}_f = \mathscr{F} \), and conversely.
+    \qed\end{prf}
+
+\begin{prp}\label{invariance under mapping} (Invariance of equivalence under mapping)
+    Let \( f:X \to Y \) be a map, and let \( x \) be a net and \( \mathscr{F} \) a filter. Then
+    \[
+        x \simeq \mathscr{F} \implies f(x)\simeq f(\mathscr{F}).
+    \]
+\end{prp}
+\begin{prf}
+    By Theorem \ref{fundamental theorem of derivation}, we may assume that the filter is derived by the net, that is, \( \mathscr{F} = \mathscr{F}_x \).
+    It suffices to show that
+    \begin{equation*}
+        f^{-1}(A)\in \mathscr{F}_x \iff A \in f(\mathscr{F}_x).
+    \end{equation*}
+    (\( \implies \)) is obvious. The converse is also obvious for a filter basis \( \mathscr{B}=I_f(\mathscr{F}_x) \) that generates \( f(\mathscr{F}_x) \). It therefore follows that for every \( A \in f(\mathscr{F}_x)\) we can choose \( B \in \mathscr{B} \) such that \( B \subset A \) and \( f^{-1}(B) \in \mathscr{F}_x \), which gives \( f^{-1}(A) \in \mathscr{F}_x \).
+    \qed\end{prf}
+
+
+\subsection{Maximal Net}
+
+As an easy application of the preceding results, here we establish several results regarding maximal nets.
+
+\begin{rem}
+    It's the best time to look back at Exercise \ref{invariance maximality} you might have skipped, which claims that maximality is invariant under derivation. Now the claim is an immediate consequence of Corollary \ref{invariance order} and Proposition \ref{characterize maximal net}.
+\end{rem}
+
+\begin{thm}\label{characterize maximal net} (Characterization of maximal net)
+    Let \( x \) be a net. The following conditions are equivalent.
+    \begin{itemize}
+        \item[(1)] \( x \) is eventually either in \( A \) or \( X \setminus A \) for every \( A \subset X \).
+        \item[(2)] \( x \) admits no proper subsets.
+        \item[(3)] The derived filter \( \mathscr{F}_x \) is maximal.
+    \end{itemize}
+\end{thm}
+\begin{prf}
+    (1) \( \iff  \) (3) by Exercise \ref{invariance maximality}.
+
+    (2) \( \iff  \) (3): By Corollary \ref{invariance order}, \( x \) admits no proper subnets if and only if \( x \) is equivalent to a maximal filter.
+    Thus \( \mathscr{F}_x \) is maximal, and conversely.
+    \qed\end{prf}
+
+The existence of a maximal subnet has also become an easy exercise.
+\begin{cor} (Existence of maximal subnet)
+    Every net admits a subnet which has no proper subnet (or equivalently, is maximal).
+\end{cor}
+\begin{prf}
+    For every net \( x \), the derived filter \( \mathscr{F}_x \) admits a maximal filter \( \mathscr{F}^{\star} \) by Proposition \ref{existence maximal filter}, which in turn admits a corresponding maximal net \( y \) by Exercise \ref{invariance maximality}. Whence we have
+    \[
+        x \simeq \mathscr{F}_x \subset \mathscr{F}^{\star} \simeq y,
+    \]
+    and hence \( x \succeq y \) by Corollary \ref{invariance order}. This means \( y \) is a subnet of \( x \).
+    \qed\end{prf}
+
+\end{document}

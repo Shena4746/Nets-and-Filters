@@ -9,15 +9,8 @@
 
 \begin{document}
 
-\section{Derivation}
-
-\subsection{Overview}
-
-In this section we see that every filter and net has its (essentially) unique twin. Each of individual filter and net turns into the corresponding twin by the conversion called derivation, and then comes back to the original one by another derivation. In other words, derivation is a kind of isomorphism between the space of filters and that of nets. In fact, as the readers reasonably expect, important properties, such as convergence and maximality and etc., are preserved under derivation. Nets and Filters are twins literally at the genetic level. So why not exploit it to investigate them?
-
-The main purpose of this section is to establish several crucial results that clarifies the genetic identity of nets and filters. As soon as the very basic definitions are introduced, some fundamental results are readily proved. We then deduce, as a simple application of them, the existence and characterization of maximal net.
-
-\subsection{Invariance under Derivation}
+\subsection{Derivation} \label{derivation}
+In this subsection we see that every filter and net has its essentially unique twin. Each of individual filter and net turns into the corresponding twin by the conversion called \textit{derivation}, and then comes back to the original one by another derivation. Very importantly, derivation preserves the orders that nets and filters naturally induce, and consequently interesting properties such as maximality and convergence are also preserved.
 
 \begin{dfn} (Derived net)
     Let \( \mathscr{B} \) be a filter basis, and let \( \mathscr{F} = \{F_{\lambda} \mid \lambda \in \Lambda \} \) be the generated filter.
@@ -30,12 +23,12 @@ The main purpose of this section is to establish several crucial results that cl
 \end{dfn}
 
 \begin{dfn} (Derived filter)
-    The filter derived from a net \( x \) is the collection of the sets \( A \) in which \( x \) eventually lies, and is denoted by \( \mathscr{F}_x \). We also say that \( x \) generates \( \mathscr{F}_x \).
+    The filter derived from a net \( x \) is the collection of sets in which \( x \) eventually lies, and is denoted by \( \mathscr{F}_x \). We also say that \( x \) generates \( \mathscr{F}_x \).
 \end{dfn}
 
 \begin{rem}
     Note that derived filter is uniquely specified as a filter once a net is designated.
-    In contrast, derived net no way specifies unique net except in trivial cases. In fact, derived nets in general consist of a collection of projection nets of indexing set of a filter into a member of the filter.
+    In contrast, derived net no way specifies unique filter except in trivial cases. In fact, derived nets in general consist of a collection of projection nets of indexing set of a filter into a member of the filter.
 \end{rem}
 
 
@@ -58,7 +51,8 @@ The main purpose of this section is to establish several crucial results that cl
 % 	Conversely, suppose \( \mathscr{F}_x \to p \), i.e., every neighborhood \( N \) of \( p \) belongs to \( \mathscr{F} \). This means that \( x \) is eventually in \( N \). Thus, \( x \to p \).
 % 	\qed\end{prf}
 
-You can safely skip the next result. Actually, we will shortly establish several results that make it almost trivial. It only serves as an exercise about maximality.
+You can safely skip the next result. Actually, we will shortly establish several results that make it trivial (see Remark \ref{invariance of maximality is obvious}). The statement is placed here just for an exercise.
+
 \begin{exe}\label{invariance maximality} (Invariance of maximality under derivation)
     \begin{itemize}
         \item Every net derived from a maximal filter is maximal.
@@ -105,7 +99,7 @@ The following theorem and its corollary are the highlight of this section. The p
     \qed\end{prf}
 
 \begin{rem} (Implication of fundamental theorem of derivation)
-    Theorem \ref{fundamental theorem of derivation} say that derivation works like an idempotent bijection between the set of filters and that of equivalence classes of nets, as we have suggested at the beginning of the section. It is thus natural to introduce a notation that represents the paired relationship, as follows.
+    Theorem \ref{fundamental theorem of derivation} says that derivation works like an idempotent bijection between the set of filters and that of equivalence classes of nets, as we have suggested at the beginning of the section. It is thus natural to introduce a notation that represents the paired relationship, as follows.
 \end{rem}
 
 \begin{dfn} (Equivalence of net and filter: \( \simeq \))
@@ -143,12 +137,12 @@ The following theorem and its corollary are the highlight of this section. The p
     \qed\end{prf}
 
 
-\subsection{Maximal Net}
+\subsection{Application of Derivation: Maximal Net} \label{maximal net}
 
-As an easy application of the preceding results, here we establish several results regarding maximal nets.
+Derivation makes it easy to translate results on filter into those on net, and vice versa. We demonstrate it with several results regarding maximal net here.
 
-\begin{rem}
-    It's the best time to look back at Exercise \ref{invariance maximality} you might have skipped, which claims that maximality is invariant under derivation. Now the claim is an immediate consequence of Corollary \ref{invariance order} and Proposition \ref{characterize maximal net}.
+\begin{rem} \label{invariance of maximality is obvious}
+    Look at Exercise \ref{invariance maximality} you might have skipped, which claims that maximality is invariant under derivation. Now the claim is an immediate consequence of Corollary \ref{invariance order} and Proposition \ref{characterize maximal net}.
 \end{rem}
 
 \begin{thm}\label{characterize maximal net} (Characterization of maximal net)
@@ -166,7 +160,7 @@ As an easy application of the preceding results, here we establish several resul
     Thus \( \mathscr{F}_x \) is maximal, and conversely.
     \qed\end{prf}
 
-The existence of a maximal subnet has also become an easy exercise.
+The existence of a maximal subnet has become almost trivial.
 \begin{cor} (Existence of maximal subnet)
     Every net admits a subnet which has no proper subnet (or equivalently, is maximal).
 \end{cor}

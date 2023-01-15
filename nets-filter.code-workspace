@@ -6,5 +6,13 @@
 	],
 	"settings": {
 		"latex-workshop.latexindent.path": "/usr/local/bin/texlive/latexindent",
+		"latex-workshop.linting.chktex.exec.path": "/usr/local/bin/texlive/chktex",
+		"latex-workshop.linting.chktex.enabled": true,
+		"latex-workshop.linting.chktex.exec.args": [
+			"-wall",
+			"-n22",
+			"-n30",
+			"-e16"
+		],
 	}
 }

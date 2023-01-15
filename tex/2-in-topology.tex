@@ -8,11 +8,14 @@
 \mathtoolsset{showonlyrefs=true}
 
 \begin{document}
-\section{Net and Filter in Topology}
+\section{Net and Filter in Topology} \label{in topology}
+
+In this section we always assume that an underlying universal set is equipped with a topological structure.
 
 \subsection{Overview}
+In this section we see that various topological concepts are re-captured and sometimes even characterized by the convergence and the cluster point of net and filter. After basic concepts  and associated results are introduced in \ref{convergence and cluster point}, a series of the characterizations is shown in \ref{characterization of topological properties}. The closing content \ref{compact space with filter} is an application to compact space, where filter-based proofs are provided to well-known statements.
 
-\subsection{Convergence and Cluster Point}
+\subsection{Convergence and Cluster Point} \label{convergence and cluster point}
 \subsubsection{Convergence and Cluster Point of Filter}
 
 \begin{dfn} (Convergence of filter)
@@ -97,7 +100,7 @@ An analogous argument to the sequence case shows the following.
     A net \( x \) is frequently in a set \( A \) if and only if \( x \) admits a subnet that is eventually in \( A \).
 \end{exe}
 
-\subsection{Characterization of Topological Properties}
+\subsection{Characterization of Topological Properties} \label{characterization of topological properties}
 
 \begin{prp}\label{characterize cluster point} (Characterization of cluster point)
     Suppose \( p \) is a point of a topological space \( X \). Let \( x \) be a net of \( X \), and let \( \mathscr{F} \) be the filter of \( X \) equivalent to \( x \). The following conditions are equivalent.
@@ -280,7 +283,7 @@ An analogous argument to the sequence case shows the following.
     (2): Sufficiency follows again from continuity of \( \pi \). Conversely, if \( p_{\lambda} \) is a cluster point of \( \mathscr{F}_{\lambda} \), then, by Proposition \ref{characterize cluster point}, there is a filter \( \mathscr{G}_{\lambda} \) that is finer than \( \mathscr{F}_{\lambda} \) and converges to \( p_{\lambda} \) for every \( \lambda \in \Lambda \). Then (1) implies the filter \( \mathscr{G} \) induced by \( (\mathscr{G}_{\lambda}, \pi_{\lambda}) \) converges to \( (p_{\lambda}) \). Since \( \mathscr{G} \) is obviously finer than \( \mathscr{F} \), \( (p_{\lambda}) \) is a cluster point of \( \mathscr{F} \) by Proposition \ref{characterize cluster point}.
     \qed\end{prf}
 
-\subsection{Compact Space with Filter}
+\subsection{Compact Space with Filter} \label{compact space with filter}
 
 \begin{prp}\label{invariance of compactness under ctn} (Invariance of compactness under continuous transformation)
     Let \( X \) be a compact space and \( Y \) be a topological space.
@@ -319,6 +322,6 @@ An analogous argument to the sequence case shows the following.
 \end{thm}
 \begin{prf}
     Necessity is obvious. Conversely, suppose each \( X_{\lambda} \) is compact.
-    Let \( \mathscr{F} \) be a maximal filter of \( X \). By Proposition \ref{invariace of maximality under invariace of maximality under surjection}, \( \mathscr{F}_{\lambda}:=\pi_{\lambda}(\mathscr{F}) \) is also maximal. Proposition \ref{characterize compact} implies each \( \mathscr{F}_{\lambda} \) is convergent; suppose \( \mathscr{F}_{\lambda}\to p_{\lambda} \). It then follows from Proposition \ref{characterize convergence of induced filter} that \( \prod \mathscr{F}_{\lambda} \to p:=(p_{\lambda})\), and thus \( \mathscr{F} \to p \).
+    Let \( \mathscr{F} \) be a maximal filter of \( X \). By Proposition \ref{invariace of maximality under surjection}, \( \mathscr{F}_{\lambda}:=\pi_{\lambda}(\mathscr{F}) \) is also maximal. Proposition \ref{characterize compact} implies each \( \mathscr{F}_{\lambda} \) is convergent; suppose \( \mathscr{F}_{\lambda}\to p_{\lambda} \). It then follows from Proposition \ref{characterize convergence of induced filter} that \( \prod \mathscr{F}_{\lambda} \to p:=(p_{\lambda})\), and thus \( \mathscr{F} \to p \).
     \qed\end{prf}
 \end{document}
